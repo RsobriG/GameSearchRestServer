@@ -19,10 +19,11 @@ public class UserRelationRestController {
 	
 	
 	
-	  @GetMapping("/myrelations") public Iterable<UserRelation>
-	  findbyUserId(String userid){
+	  @GetMapping("/myrelations") 
+	  public Iterable<UserRelation>  findbyUserId(String userid){
 	  
-	  return repository.findbyUserId(userid); }
+	  return repository.findbyUserId(userid); 
+	  }
 	 
 	 
 	
