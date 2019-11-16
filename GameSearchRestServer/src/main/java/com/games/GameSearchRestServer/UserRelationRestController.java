@@ -27,7 +27,7 @@ public class UserRelationRestController {
 	 
 	 
 	
-	@PostMapping(path="/userrelations",consumes="aplication/json")
+	@PostMapping(path="/adduserrelation",consumes="aplication/json")
 	public void addUserRelation(@RequestBody UserRelation rel) {
 		repository.save(rel);
 	}
