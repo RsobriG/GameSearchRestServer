@@ -1,32 +1,47 @@
 package com.games.GameSearchRestServer;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="gamesesions")
 public class GameSesion {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sesionid", updatable = false, nullable = false)
 	private long sesionId;
 	@Column(name="userid")
 	private String userid;
 	@Column(name="gameid")
 	private long gameId;
 	@Column(name="timestamp")
-	private Date timeStamp;
+	private Timestamp timeStamp;
 	
-	public enum Relation{PLAYER,ADMIN,MASTER,ADMINMASTER,APPLICANT,GUEST,REMOVED};
+	public enum GRelation{PLAYER,ADMIN,MASTER,ADMINMASTER,APPLICANT,GUEST,REMOVED};
 	@Column(name="relation")
-	private Relation relation;
+	private GRelation grelation;
 	
 	// Constructores
 	
 	public GameSesion() {
 		super();
+	}
+	
+	public GameSesion(long gameid, String userid, GRelation grelation) {
+		super();
+		this.gameId = gameid;
+		this.userid =userid;
+		this.grelation = grelation;
+		this.timeStamp = new Timestamp(System.currentTimeMillis());
 	}
 	
 	
@@ -50,17 +65,17 @@ public class GameSesion {
 	public void setGameId(long gameId) {
 		this.gameId = gameId;
 	}
-	public Date getTimeStamp() {
+	public Timestamp getTimeStamp() {
 		return timeStamp;
 	}
-	public void setTimeStamp(Date timeStamp) {
+	public void setTimeStamp(Timestamp timeStamp) {
 		this.timeStamp = timeStamp;
 	}
-	public Relation getRelation() {
-		return relation;
+	public GRelation getRelation() {
+		return grelation;
 	}
-	public void setRelation(Relation relation) {
-		this.relation = relation;
+	public void setRelation(GRelation relation) {
+		this.grelation = relation;
 	}
 	
 }
