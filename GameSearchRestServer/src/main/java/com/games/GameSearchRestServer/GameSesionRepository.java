@@ -7,9 +7,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GameSesionRepository extends CrudRepository<GameSesion,String>{
 	
-	@Query("Select u from GameSesion u where u.userid = ?1") 
+	@Query("select u from GameSesion u where u.userid = ?1") 
 	  public Iterable<GameSesion> findbyUserId(String userid);
-
+	
 	@Query("Select u from GameSesion u where u.gameId = ?1") 
-	  public Iterable<GameSesion> findbyGameId(String gameid);
+	  public Iterable<GameSesion> findbyGameId(long gameid);
+
+
 }

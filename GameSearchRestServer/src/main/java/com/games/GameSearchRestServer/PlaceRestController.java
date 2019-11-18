@@ -3,6 +3,7 @@ package com.games.GameSearchRestServer;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ public class PlaceRestController {
 		return repository.findbyName(name);
 	}
 
-	@PostMapping(path="/addplace",consumes="application/json")
+	@PostMapping(path="/addplace",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public void addPlace(@RequestBody Place place) {
 		repository.save(place);
 		

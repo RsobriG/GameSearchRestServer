@@ -1,6 +1,7 @@
 package com.games.GameSearchRestServer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ public class UserRelationRestController {
 	 
 	 
 	
-	@PostMapping(path="/adduserrelation",consumes="aplication/json")
+	@PostMapping(path="/adduserrelation",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public void addUserRelation(@RequestBody UserRelation rel) {
 		repository.save(rel);
 	}

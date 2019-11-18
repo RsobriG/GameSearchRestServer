@@ -1,6 +1,7 @@
 package com.games.GameSearchRestServer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ public class GameSesionRestController {
 	
 	@Autowired
 	GameSesionRepository repository;
+	GameSesionRepositoryLong repositoryLong;
 	
 	@GetMapping("/mygames")
 	public Iterable<GameSesion> findbyUserId(String userid){
@@ -21,12 +23,12 @@ public class GameSesionRestController {
 	}
 	
 	@GetMapping("/gameplayers")
-	public Iterable<GameSesion> findbyGameId(String gameid){
+	public Iterable<GameSesion> findbyGameId(long gameid){
 		
 		return repository.findbyGameId(gameid);
 	}
 	
-	@PostMapping(path="/insertgamesesion",consumes="aplication/json")
+	@PostMapping(path="/insertgamesesion",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public void insertGameSesion(@RequestBody GameSesion gamesesion) {
 		repository.save(gamesesion);
 	}
