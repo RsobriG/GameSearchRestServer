@@ -37,8 +37,8 @@ public class UserRestController {
 	}
 	
 	@GetMapping("/searchUserByNickname")
-	public Iterable<User> findUserByNickname(String nickname){
-		return repository.findUserByNickname(nickname);
+	public Iterable<User> findUserByNickname(String nickName){
+		return repository.findUserByNickname(nickName);
 	}
 	
 	
