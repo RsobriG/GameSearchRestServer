@@ -14,7 +14,6 @@ public class GameSesionRestController {
 	
 	@Autowired
 	GameSesionRepository repository;
-	GameSesionRepositoryLong repositoryLong;
 	
 	@GetMapping("/mygames")
 	public Iterable<GameSesion> findbyUserId(String userid){

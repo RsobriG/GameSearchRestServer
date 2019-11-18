@@ -25,6 +25,12 @@ public class UserRelationRestController {
 	  
 	  return repository.findbyUserId(userid); 
 	  }
+	  
+	  @GetMapping("/mytargets") 
+	  public Iterable<UserRelation>  findbyUserTarget(String userid){
+	  
+	  return repository.findbyUserTarget(userid); 
+	  }
 	 
 	 
 	

@@ -12,6 +12,9 @@ public interface UserRelationRepository extends CrudRepository<UserRelation,Stri
 	
 	  @Query("Select u from UserRelation u where u.userId = ?1") 
 	  public Iterable<UserRelation> findbyUserId(String userid);
+	  
+	  @Query("Select u from UserRelation u where u.userTargetId = ?1") 
+	  public Iterable<UserRelation> findbyUserTarget(String userid);
 	 
 	
 }
