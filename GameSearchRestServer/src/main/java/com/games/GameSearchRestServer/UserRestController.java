@@ -37,18 +37,14 @@ public class UserRestController {
 	}
 	
 	@GetMapping("/searchUserByNickname")
-	public Iterable<User> findUserByNickname(String nickName){
+	public User findUserByNickname(String nickName){
 		return repository.findUserByNickname(nickName);
 	}
-	
-	
-	
-	/* Un usuario normal no puede borrar a otro usuario
+	/*
+	 * @GetMapping("/searchUserByEmail") public Optional<User>
+	 * findUserByEmail(String email){
 	 * 
-	 * @DeleteMapping("/users/{name}") public void deleteUser(@PathVariable String
-	 * name) { Optional<User> user = repository.findById(name);
-	 * 
-	 * if(user.isPresent()) { repository.delete(user.get()); } }
+	 * return repository.findById(email); }
 	 */
 
 }
